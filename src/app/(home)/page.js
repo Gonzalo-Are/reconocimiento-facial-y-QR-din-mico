@@ -25,7 +25,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/signin">
-              <Button size="lg" variant="outline" className="cursor-pointer border-[#3B82F6] text-[#3B82F6] hover:bg-[#3B82F6]/50 hover:text-[#F3F4F6] font-semibold">
+              <Button size="lg" variant="outline" className="cursor-pointer border-[#3B82F6] text-[#3B82F6] hover:bg-[#FACC15] hover:text-[#F3F4F6] font-semibold">
                 Iniciar Sesión
               </Button>
             </Link>
@@ -45,7 +45,7 @@ export default function Home() {
         </div>
 
         <div className="mx-auto grid gap-8 sm:max-w-3xl sm:grid-cols-2 md:max-w-5xl lg:max-w-6xl lg:grid-cols-3">
-          <div className="flex flex-col items-center space-y-4 rounded-lg border border-[#334155] bg-[#1E293B]/70 p-6 transition-all hover:border-[#3B82F6]/50 hover:bg-[#1E293B]">
+          <div className="flex flex-col items-center space-y-4 rounded-lg border border-[#334155] bg-[#1E293B]/70 p-6 transition-all hover:border-[#FACC15] hover:bg-[#1E293B]">
             <div className="rounded-full bg-[#3B82F6]/10 p-3">
               <Shield className="h-7 w-7 text-[#3B82F6]" />
             </div>
@@ -55,7 +55,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-col items-center space-y-4 rounded-lg border border-[#334155] bg-[#1E293B]/70 p-6 transition-all hover:border-[#3B82F6]/50 hover:bg-[#1E293B]">
+          <div className="flex flex-col items-center space-y-4 rounded-lg border border-[#334155] bg-[#1E293B]/70 p-6 transition-all hover:border-[#FACC15] hover:bg-[#1E293B]">
             <div className="rounded-full bg-[#3B82F6]/10 p-3">
               <BarChart3 className="h-7 w-7 text-[#3B82F6]" />
             </div>
@@ -65,7 +65,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-col items-center space-y-4 rounded-lg border border-[#334155] bg-[#1E293B]/70 p-6 transition-all hover:border-[#3B82F6]/50 hover:bg-[#1E293B]">
+          <div className="flex flex-col items-center space-y-4 rounded-lg border border-[#334155] bg-[#1E293B]/70 p-6 transition-all hover:border-[#FACC15] hover:bg-[#1E293B]">
             <div className="rounded-full bg-[#3B82F6]/10 p-3">
               <Lock className="h-7 w-7 text-[#3B82F6]" />
             </div>
