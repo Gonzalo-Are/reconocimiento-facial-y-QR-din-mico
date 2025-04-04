@@ -18,14 +18,14 @@ export default function Home() {
             Control de acceso inteligente y seguro para su establecimiento, diseñado para empresas que valoran la protección y eficiencia
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 mt-4">
-            <Link href="/signup">
+            <Link href="/sign-up">
               <Button size="lg" className="gap-2 cursor-pointer bg-[#FACC15] hover:bg-[#FACC15]/80 text-[#0F172A] font-semibold hover:text-[#1E293B]">
                 Comenzar Ahora
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/signin">
-              <Button size="lg" variant="outline" className="cursor-pointer border-[#3B82F6] text-[#3B82F6] hover:bg-[#FACC15] hover:text-[#F3F4F6] font-semibold">
+            <Link href="/sign-in">
+              <Button size="lg" variant="outline" className="cursor-pointer border-[#3B82F6] text-[#3B82F6] hover:bg-[#E5E7EB] hover:text-black font-semibold">
                 Iniciar Sesión
               </Button>
             </Link>
