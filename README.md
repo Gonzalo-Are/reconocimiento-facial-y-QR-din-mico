@@ -5,7 +5,7 @@ Control de acceso con reconocimiento facial y QR dinámico
 ## 🚀 Tecnologías Principales
 
 - [Next.js](https://nextjs.org/) — Framework React para aplicaciones web modernas.
-- [pnpm](https://pnpm.io/) — Gestor de paquetes rápido y eficiente.
+- [Bun](https://bun.sh/) — Runtime y gestor de paquetes ultra rápido para JavaScript y TypeScript.
 - [React](https://reactjs.org/) — Biblioteca para construir interfaces de usuario.
 
 ---
@@ -15,23 +15,30 @@ Control de acceso con reconocimiento facial y QR dinámico
 Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
 - [Node.js](https://nodejs.org/) (v18 o superior recomendado)
+- [Bun](https://bun.sh/) (última versión recomendada)
 
-## 📥 Instalación de pnpm
+## 📥 Instalación de Bun
 
-Si aún no tienes `pnpm` instalado, puedes hacerlo con el siguiente comando:
+Si aún no tienes `bun` instalado, puedes hacerlo con el siguiente comando:
 
+Para macOS, Linux, y WSL:
 ```bash
-npm install -g pnpm
+curl -fsSL https://bun.sh/install | bash
 ```
+Para Windows (con PowerShell):
+```bash
+powershell -c "irm bun.sh/install.ps1 | iex"
+```
+
 ## 🧪 Levantar el entorno de desarrollo local
 1. Asegúrate de haber instalado las dependencias con:
 ```bash
-pnpm install
+bun install
 ```
 
 2. Luego ejecuta el siguiente comando para levantar el entorno local:
 ```bash
-pnpm dev
+bun dev
 ```
 
 3. Abre tu buscador en:
@@ -39,10 +46,10 @@ pnpm dev
 http://localhost:3000
 ```
 ## 🏗️ Scripts Disponibles
-- `pnpm dev:` Levanta el servidor de desarrollo
-- `pnpm build:` Compila el proyecto para producción
-- `pnpm start:` Inicia la app en modo producción (requiere build previo)
-- `pnpm lint:` Ejecuta el linter
+- `bun dev:` Levanta el servidor de desarrollo
+- `bun build:` Compila el proyecto para producción
+- `bun start:` Inicia la app en modo producción (requiere build previo)
+- `bun lint:` Ejecuta el linter
 
 Inegrantes:
 - Gonzalo Arenas
