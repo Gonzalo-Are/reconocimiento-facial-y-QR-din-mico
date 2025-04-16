@@ -23,6 +23,26 @@ Si aún no tienes `pnpm` instalado, puedes hacerlo con el siguiente comando:
 ```bash
 npm install -g pnpm
 ```
+## 🧪 Levantar el entorno de desarrollo local
+1. Asegúrate de haber instalado las dependencias con:
+```bash
+pnpm install
+```
+
+2. Luego ejecuta el siguiente comando para levantar el entorno local:
+```bash
+pnpm dev
+```
+
+3. Abre tu buscador en:
+```arduino
+http://localhost:3000
+```
+## 🏗️ Scripts Disponibles
+- `pnpm dev:` Levanta el servidor de desarrollo
+- `pnpm build:` Compila el proyecto para producción
+- `pnpm start:` Inicia la app en modo producción (requiere build previo)
+- `pnpm lint:` Ejecuta el linter
 
 Inegrantes:
 - Gonzalo Arenas
