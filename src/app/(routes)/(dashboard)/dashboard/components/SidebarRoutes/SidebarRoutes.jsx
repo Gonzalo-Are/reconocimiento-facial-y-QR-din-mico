@@ -14,14 +14,14 @@ export function SidebarRoutes() {
         <div className="p-2 md:p-6">
           <p className="mb-2 text-slate-500">GENERAL</p>
           {dataGeneralSidebar.map((item) => (
-            <SidebarItem key={item.id} label={item.label} icon={item.icon} href={item.href} />
+            <SidebarItem key={item.href} label={item.label} icon={item.icon} href={item.href} />
           ))}
         </div>
         <Separator />
         <div className="p-2 md:p-6">
           <p className="mb-2 text-slate-500">ADMIN</p>
           {dataAdminSidebar.map((item) => (
-            <SidebarItem key={item.id} label={item.label} icon={item.icon} href={item.href} />
+            <SidebarItem key={item.href} label={item.label} icon={item.icon} href={item.href} />
           ))}
         </div>
       </div>
