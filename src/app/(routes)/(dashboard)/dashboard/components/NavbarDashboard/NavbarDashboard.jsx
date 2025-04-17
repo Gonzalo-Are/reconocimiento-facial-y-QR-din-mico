@@ -1,6 +1,7 @@
 import {
   Sheet,
   SheetContent,
+  SheetTitle,
   SheetTrigger
 } from "@/components/ui/sheet"
 import { UserButton } from "@clerk/nextjs"
@@ -14,10 +15,11 @@ export function NavbarDashboard() {
     <nav className="flex items-center justify-between w-full h-20 px-2 border-b gap-x-4 md:px-6 bg-background">
       <div className="block xl:hidden">
         <Sheet>
-          <SheetTrigger className="flex items-center">
+          <SheetTrigger className="flex items-center cursor-pointer">
             <Menu />
           </SheetTrigger>
           <SheetContent side="left">
+            <SheetTitle className={"p-2"}>Menu</SheetTitle>
             <SidebarRoutes />
           </SheetContent>
         </Sheet>
