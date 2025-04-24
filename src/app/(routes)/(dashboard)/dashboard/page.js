@@ -1,5 +1,5 @@
+import QRUsuario from '@/components/ui/QRUsuario'
 import { SignedIn, SignedOut } from '@clerk/nextjs'
-import QRUsuario from '../../../components/ui/QRUsuario'
 import Link from 'next/link'
 
 export default function Dashboard() {
