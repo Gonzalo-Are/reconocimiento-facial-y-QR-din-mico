@@ -1,7 +1,7 @@
 'use client'
-import { useEffect, useState } from 'react'
-import { QRCodeCanvas } from 'qrcode.react'
 import { useUser } from '@clerk/nextjs'
+import { QRCodeCanvas } from 'qrcode.react'
+import { useEffect, useState } from 'react'
 
 export default function QRUsuario() {
   const { user } = useUser()
