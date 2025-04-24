@@ -1,4 +1,4 @@
-import { BarChart3, History, KeyRound, LayoutDashboard, Shield } from "lucide-react";
+import { BarChart3, History, LayoutDashboard, Settings, Shield } from "lucide-react";
 
 export const dataGeneralSidebar = [
   {
@@ -12,9 +12,9 @@ export const dataGeneralSidebar = [
     icon: History,
   },
   {
-    href: "/access",
-    label: "Permisos",
-    icon: KeyRound,
+    href: "/settings",
+    label: "Configuración",
+    icon: Settings,
   },
 ]
 
