@@ -9,22 +9,19 @@ export default function ProfilePhotoCheck({ children }) {
   const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
-    // Simplemente mostrar el modal al iniciar sesión por primera vez
-    // Sin validaciones adicionales
+    // Verificar si el usuario tiene la URL de la foto en los metadatos
     if (isLoaded && user) {
-      // Podemos usar localStorage para verificar si ya mostró el modal
-      const hasShownPhotoModal = localStorage.getItem('hasShownPhotoModal')
+      const hasFacePhoto = user.publicMetadata?.faceBlobUrl
       
-      if (!hasShownPhotoModal) {
+      if (!hasFacePhoto) {
         setShowModal(true)
       }
     }
   }, [isLoaded, user])
 
-  const handlePhotoUploaded = () => {
-    // Guardar en localStorage que ya se mostró el modal
-    localStorage.setItem('hasShownPhotoModal', 'true')
+  const handlePhotoUploaded = (blobUrl) => {
     setShowModal(false)
+    console.log('Foto subida exitosamente:', blobUrl)
   }
 
   if (!isLoaded) {
