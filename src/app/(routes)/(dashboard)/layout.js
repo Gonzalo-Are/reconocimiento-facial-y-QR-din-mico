@@ -1,6 +1,6 @@
 'use client'
 
-import ProfilePhotoCheck from "@/components/ui/ProfilePhotoCheck";
+import { ProfilePhotoCheck } from "./components/ProfilePhoto";
 import { NavbarDashboard } from "./dashboard/components/NavbarDashboard";
 import { Sidebar } from "./dashboard/components/Sidebar";
 
