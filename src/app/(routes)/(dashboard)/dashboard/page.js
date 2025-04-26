@@ -1,4 +1,4 @@
-import QRUsuario from '@/components/ui/QRUsuario'
+// import QRUsuario from '@/components/ui/QRUsuario'
 import { SignedIn, SignedOut } from '@clerk/nextjs'
 import Link from 'next/link'
 
@@ -8,7 +8,7 @@ export default function Dashboard() {
           <SignedIn>
             <div className="p-6">
               <h1 className="text-2xl font-bold mb-4">Panel de Control</h1>
-              <QRUsuario />
+              {/* <QRUsuario /> */}
             </div>
           </SignedIn>
     
