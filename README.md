@@ -51,6 +51,13 @@ http://localhost:3000
 - `bun start:` Inicia la app en modo producción (requiere build previo)
 - `bun lint:` Ejecuta el linter
 
+#Azure Blob Descargar
+```bash
+bun add @azure/storage-blob multer next-connect
+
+```
+
+
 Inegrantes:
 - Gonzalo Arenas
 - Joaquín Wolde
