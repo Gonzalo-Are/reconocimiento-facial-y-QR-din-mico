@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import { toast } from 'sonner'
 import { Button } from './button'
 
 export default function ProfilePhotoModal({ onComplete }) {
@@ -72,6 +73,17 @@ export default function ProfilePhotoModal({ onComplete }) {
               type="submit"
               disabled={!preview}
               className="bg-blue-600 hover:bg-blue-700 text-white"
+              onClick={() => 
+                toast("Event has been created", {
+                  description: "Sunday, December 03, 2023 at 9:00 AM",
+                  action: {
+                    label: "Undo",
+                    onClick: () => {
+                      console.log("Undo action clicked")
+                    },
+                  },
+                })
+              }
             >
               Continuar
             </Button>
