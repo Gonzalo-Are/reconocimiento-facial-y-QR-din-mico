@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { SignInButton } from "@clerk/nextjs";
 import { ArrowRight, BarChart3, Lock, Shield } from "lucide-react";
 import Link from "next/link";
 
@@ -24,11 +25,12 @@ export default function Home() {
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/sign-in">
+            <SignInButton mode="modal">
+              {/* This button will open the sign-in modal */}
               <Button size="lg" variant="outline" className="cursor-pointer border-[#3B82F6] text-[#3B82F6] hover:bg-[#E5E7EB] hover:text-black font-semibold">
                 Iniciar Sesión
               </Button>
-            </Link>
+            </SignInButton>
           </div>
         </div>
       </section>
