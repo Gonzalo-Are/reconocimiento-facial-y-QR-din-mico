@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["facetoqrimages.blob.core.windows.net"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "facetoqrimages.blob.core.windows.net",
+        pathname: "/**", // permite todas las rutas del blob
+      },
+    ],
   },
 };
 
