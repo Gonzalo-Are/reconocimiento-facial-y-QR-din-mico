@@ -1,4 +1,4 @@
-import UploadPhotoForm from "@/components/UploadPhotoForm"
+import UploadAvatar from "@/components/UploadAvatar";
 
 export default function DashboardSettingsPage() {
   return (
@@ -6,8 +6,9 @@ export default function DashboardSettingsPage() {
       <h1 className="text-2xl font-bold">Ajustes de Cuenta</h1>
       <section className="bg-white p-6 rounded-lg shadow">
         <h2 className="text-xl mb-4">Foto de Perfil</h2>
-        <UploadPhotoForm />
+        {/* <UploadPhotoForm /> */}
+        <UploadAvatar />
       </section>
     </div>
-  )
+  );
 }
