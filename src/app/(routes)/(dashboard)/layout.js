@@ -9,7 +9,9 @@ export default function DashboardLayout({ children }) {
       </div>
       <div className="w-full h-full xl:ml-80">
         <NavbarDashboard />
-        <div className="p-6 h-max">{children}</div>
+        <div className="p-6 h-max bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 min-h-screen">
+          {children}
+        </div>
       </div>
     </div>
   );

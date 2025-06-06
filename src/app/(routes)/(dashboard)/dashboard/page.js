@@ -1,19 +1,30 @@
 export default function Dashboard() {
   return (
     <div className="p-6 space-y-6">
-      <h1 className="text-3xl font-bold text-gray-800 mb-8">
+      <h1 className="text-3xl font-bold text-gray-700/90 mb-8 backdrop-blur-sm">
         Panel de Control
       </h1>
 
       {/* Grid Bento Layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
         {/* Tarjeta Principal - Más grande */}
-        <div className="lg:col-span-2 lg:row-span-1 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100">
-          <div className="h-48 flex flex-col justify-between">
+        <div className="lg:col-span-2 lg:row-span-1 relative group">
+          {/* Contenedor con efecto glassmorphism */}
+          <div className="absolute inset-0 bg-white/30 backdrop-blur-xl rounded-2xl border border-white/40 shadow-2xl group-hover:shadow-3xl transition-all duration-500"></div>
+
+          {/* Efecto Glossy - Envuelve toda la tarjeta */}
+          <div className="absolute inset-0 rounded-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-white/10 to-transparent"></div>
+            <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white/40 to-transparent"></div>
+            <div className="absolute top-2 left-2 right-2 h-1/4 bg-gradient-to-b from-white/20 to-transparent rounded-xl"></div>
+          </div>
+
+          {/* Contenido de la tarjeta */}
+          <div className="relative z-10 p-8 h-64 flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-4">
+              <div className="w-14 h-14 bg-gradient-to-br from-blue-500/20 to-blue-600/30 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 border border-blue-300/20">
                 <svg
-                  className="w-6 h-6 text-white"
+                  className="w-7 h-7 text-blue-600"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -35,12 +46,23 @@ export default function Dashboard() {
         </div>
 
         {/* Tarjeta Secundaria Superior Derecha */}
-        <div className="bg-gradient-to-br from-green-50 to-emerald-100 rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-green-100">
-          <div className="h-48 flex flex-col justify-between">
+        <div className="relative group">
+          {/* Contenedor con efecto glassmorphism */}
+          <div className="absolute inset-0 bg-white/30 backdrop-blur-xl rounded-2xl border border-white/40 shadow-2xl group-hover:shadow-3xl transition-all duration-500"></div>
+
+          {/* Efecto Glossy - Envuelve toda la tarjeta */}
+          <div className="absolute inset-0 rounded-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-white/10 to-transparent"></div>
+            <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white/40 to-transparent"></div>
+            <div className="absolute top-2 left-2 right-2 h-1/4 bg-gradient-to-b from-white/20 to-transparent rounded-xl"></div>
+          </div>
+
+          {/* Contenido de la tarjeta */}
+          <div className="relative z-10 p-6 h-64 flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mb-4">
+              <div className="w-14 h-14 bg-gradient-to-br from-green-500/20 to-green-600/30 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 border border-green-300/20">
                 <svg
-                  className="w-6 h-6 text-white"
+                  className="w-7 h-7 text-green-600"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -62,12 +84,23 @@ export default function Dashboard() {
         </div>
 
         {/* Tarjeta Inferior Izquierda */}
-        <div className="bg-gradient-to-br from-purple-50 to-violet-100 rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100">
-          <div className="h-48 flex flex-col justify-between">
+        <div className="relative group">
+          {/* Contenedor con efecto glassmorphism */}
+          <div className="absolute inset-0 bg-white/30 backdrop-blur-xl rounded-2xl border border-white/40 shadow-2xl group-hover:shadow-3xl transition-all duration-500"></div>
+
+          {/* Efecto Glossy - Envuelve toda la tarjeta */}
+          <div className="absolute inset-0 rounded-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-white/10 to-transparent"></div>
+            <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white/40 to-transparent"></div>
+            <div className="absolute top-2 left-2 right-2 h-1/4 bg-gradient-to-b from-white/20 to-transparent rounded-xl"></div>
+          </div>
+
+          {/* Contenido de la tarjeta */}
+          <div className="relative z-10 p-6 h-64 flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mb-4">
+              <div className="w-14 h-14 bg-gradient-to-br from-purple-500/20 to-purple-600/30 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 border border-purple-300/20">
                 <svg
-                  className="w-6 h-6 text-white"
+                  className="w-7 h-7 text-purple-600"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -89,12 +122,23 @@ export default function Dashboard() {
         </div>
 
         {/* Tarjeta Inferior Derecha */}
-        <div className="lg:col-span-2 bg-gradient-to-br from-orange-50 to-amber-100 rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-orange-100">
-          <div className="h-48 flex flex-col justify-between">
+        <div className="lg:col-span-2 relative group">
+          {/* Contenedor con efecto glassmorphism */}
+          <div className="absolute inset-0 bg-white/30 backdrop-blur-xl rounded-2xl border border-white/40 shadow-2xl group-hover:shadow-3xl transition-all duration-500"></div>
+
+          {/* Efecto Glossy - Envuelve toda la tarjeta */}
+          <div className="absolute inset-0 rounded-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-white/10 to-transparent"></div>
+            <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white/40 to-transparent"></div>
+            <div className="absolute top-2 left-2 right-2 h-1/4 bg-gradient-to-b from-white/20 to-transparent rounded-xl"></div>
+          </div>
+
+          {/* Contenido de la tarjeta */}
+          <div className="relative z-10 p-6 h-64 flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center mb-4">
+              <div className="w-14 h-14 bg-gradient-to-br from-orange-500/20 to-orange-600/30 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 border border-orange-300/20">
                 <svg
-                  className="w-6 h-6 text-white"
+                  className="w-7 h-7 text-orange-600"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -121,72 +165,6 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Sección de acciones rápidas */}
-      <div className="mt-8">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">
-          Acciones Rápidas
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <button className="bg-white rounded-2xl p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col items-center space-y-2">
-            <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-              <svg
-                className="w-5 h-5 text-blue-600"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M10 3.5a.5.5 0 00-.5-.5h-8a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h8a.5.5 0 00.5-.5v-2a.5.5 0 011 0v2A1.5 1.5 0 019.5 14h-8A1.5 1.5 0 010 12.5v-9A1.5 1.5 0 011.5 2h8A1.5 1.5 0 0111 3.5v2a.5.5 0 01-1 0v-2z" />
-              </svg>
-            </div>
-            <span className="text-sm font-medium text-gray-700">
-              Nuevo Registro
-            </span>
-          </button>
-
-          <button className="bg-white rounded-2xl p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col items-center space-y-2">
-            <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-              <svg
-                className="w-5 h-5 text-green-600"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4z" />
-              </svg>
-            </div>
-            <span className="text-sm font-medium text-gray-700">
-              Generar QR
-            </span>
-          </button>
-
-          <button className="bg-white rounded-2xl p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col items-center space-y-2">
-            <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
-              <svg
-                className="w-5 h-5 text-purple-600"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-            </div>
-            <span className="text-sm font-medium text-gray-700">
-              Ver Usuarios
-            </span>
-          </button>
-
-          <button className="bg-white rounded-2xl p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col items-center space-y-2">
-            <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-              <svg
-                className="w-5 h-5 text-orange-600"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5z" />
-              </svg>
-            </div>
-            <span className="text-sm font-medium text-gray-700">Reportes</span>
-          </button>
         </div>
       </div>
     </div>
