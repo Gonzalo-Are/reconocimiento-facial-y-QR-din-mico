@@ -1,9 +1,12 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { SignInButton } from "@clerk/nextjs";
 import { ArrowRight, BarChart3, Lock, Shield } from "lucide-react";
+import { useUser} from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function Home() {
+  const {isSignedIn} = useUser();
   return (
     <main className="flex min-h-screen flex-col bg-gradient-to-b from-[#0F172A] to-[#1E293B] text-[#F3F4F6]">
       {/* Hero Section */}
@@ -19,18 +22,26 @@ export default function Home() {
             Control de acceso inteligente y seguro para su establecimiento, diseñado para empresas que valoran la protección y eficiencia
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 mt-4">
-            <Link href="/sign-up">
+            <Link href={isSignedIn ? "dashboard" : "/sign-up"}>
               <Button size="lg" className="gap-2 cursor-pointer bg-[#FACC15] hover:bg-[#FACC15]/80 text-[#0F172A] font-semibold hover:text-[#1E293B]">
                 Comenzar Ahora
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
+            {isSignedIn ? (
+              <Link href="/dashboard">
+                <Button size="lg" variant="outline" className="cursor-pointer border-[#3B82F6] text-[#3B82F6] hover:bg-[#E5E7EB] hover:text-black font-semibold">
+                Dashboard
+                </Button>
+              </Link>
+            ) : (
             <SignInButton mode="modal">
               {/* This button will open the sign-in modal */}
               <Button size="lg" variant="outline" className="cursor-pointer border-[#3B82F6] text-[#3B82F6] hover:bg-[#E5E7EB] hover:text-black font-semibold">
                 Iniciar Sesión
               </Button>
             </SignInButton>
+            )}
           </div>
         </div>
       </section>
