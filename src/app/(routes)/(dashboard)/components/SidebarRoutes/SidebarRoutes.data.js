@@ -1,10 +1,19 @@
-import { BarChart3, History, LayoutDashboard, Settings, Shield } from "lucide-react";
+import {
+  BarChart3,
+  CalendarClock,
+  Camera,
+  History,
+  QrCode,
+  Settings,
+  Shield,
+  User,
+} from "lucide-react";
 
 export const dataGeneralSidebar = [
   {
     href: "/dashboard",
-    label: "Dashboard",
-    icon: LayoutDashboard,
+    label: "Mi panel",
+    icon: User,
   },
   {
     href: "/records",
@@ -12,11 +21,29 @@ export const dataGeneralSidebar = [
     icon: History,
   },
   {
+    href: "/schedules",
+    label: "Horarios",
+    icon: CalendarClock,
+  },
+  {
     href: "/settings",
     label: "Configuración",
     icon: Settings,
   },
-]
+];
+
+export const dataUSerSidebar = [
+  {
+    href: "/Qr",
+    label: "Mi Código QR",
+    icon: QrCode,
+  },
+  {
+    href: "/facial",
+    label: "Reconocimiento facial",
+    icon: Camera,
+  },
+];
 
 export const dataAdminSidebar = [
   {
@@ -28,5 +55,5 @@ export const dataAdminSidebar = [
     href: "/user-history",
     label: "Historial de usuarios",
     icon: BarChart3,
-  }
-]
+  },
+];
