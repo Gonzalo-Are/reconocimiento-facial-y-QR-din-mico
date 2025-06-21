@@ -1,4 +1,3 @@
-// src/app/(routes)/camera/page.jsx
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
@@ -9,20 +8,28 @@ export default function CameraPage() {
   const { user } = useUser()                // ID del usuario logueado
   const videoRef = useRef(null)
   const [status, setStatus] = useState('Conectando con la cámara…')
+  const [camaraDisponible, setCamaraDisponible] = useState(true)
 
   /* 1. Pedir acceso a la cámara al montar el componente */
   useEffect(() => {
     navigator.mediaDevices.getUserMedia({ video: true })
       .then(stream => {
+        if (videoRef.current) {
         videoRef.current.srcObject = stream
         videoRef.current.play()
         setStatus('Apunta tu rostro y pulsa “Verificar”')
+        }
       })
-      .catch(() => setStatus('No se pudo acceder a la cámara'))
+      .catch(() => {
+        setCamaraDisponible(false)
+        setStatus('No se pudo acceder a la cámara')
+      })
   }, [])
 
   /* 2. Capturar imagen, enviarla al backend y decidir acceso */
   const verificar = async () => {
+    if (!videoRef.current) return
+    
     const canvas = document.createElement('canvas')
     canvas.width  = videoRef.current.videoWidth
     canvas.height = videoRef.current.videoHeight
@@ -47,25 +54,34 @@ export default function CameraPage() {
   }
 
   return (
-    <main className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Verificación biométrica</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center px-4">
+      <h1 className="text-xl sm:text-2xl font-bold mb-4 text-center">
+        Verificación biométrica
+      </h1>
 
-      <p className="mb-4">{status}</p>
+      {camaraDisponible ? (
+        <video
+          ref={videoRef}
+          autoPlay
+          playsInline
+          className="w-full max-w-sm rounded-md shadow-lg aspect-video bg-black"
+        />
+      ) : (
+        <div className="w-full max-w-sm aspect-video bg-black rounded-md shadow-lg flex items-center justify-center text-white">
+          <p className="text-center px-4">Cámara no disponible</p>
+        </div>
+      )}
 
-      <video ref={videoRef} className="w-full max-w-md rounded bg-black" />
-
-      <div className="mt-4 flex gap-4">
-        <button
-          onClick={verificar}
-          className="px-4 py-2 bg-green-600 text-white rounded"
-        >
+      <div className="mt-6 flex gap-4">
+        <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">
           Verificar
         </button>
-
-        <Link href="/dashboard" className="px-4 py-2 bg-gray-200 rounded">
-          Volver
+        <Link href="/dashboard">
+          <button className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded">
+            Volver
+          </button>
         </Link>
       </div>
-    </main>
-  )
+    </div>
+  );
 }
