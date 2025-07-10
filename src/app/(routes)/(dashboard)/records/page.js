@@ -1,7 +1,7 @@
 import AccessRecordsTable from "@/components/AccessRecordsTable";
 import RecordsCardsGrid from "@/components/RecordsCardsGrid";
 
-export default function Dashboard() {
+export default function Records() {
   return (
     <div className="space-y-8">
       {/* Header */}
