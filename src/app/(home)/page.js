@@ -1,12 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { SignInButton } from "@clerk/nextjs";
+import { SignInButton, useUser } from "@clerk/nextjs";
 import { ArrowRight, BarChart3, Lock, Shield } from "lucide-react";
-import { useUser} from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function Home() {
-  const {isSignedIn} = useUser();
+  const { isSignedIn } = useUser();
   return (
     <main className="flex min-h-screen flex-col bg-gradient-to-b from-[#0F172A] to-[#1E293B] text-[#F3F4F6]">
       {/* Hero Section */}
@@ -19,41 +18,57 @@ export default function Home() {
             Sistema de Reconocimiento Facial
           </h1>
           <p className="max-w-[42rem] text-[#E5E7EB]/80 sm:text-xl">
-            Control de acceso inteligente y seguro para su establecimiento, diseñado para empresas que valoran la protección y eficiencia
+            Control de acceso inteligente y seguro para su establecimiento,
+            diseñado para empresas que valoran la protección y eficiencia
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 mt-4">
             <Link href={isSignedIn ? "dashboard" : "/sign-up"}>
-              <Button size="lg" className="gap-2 cursor-pointer bg-[#FACC15] hover:bg-[#FACC15]/80 text-[#0F172A] font-semibold hover:text-[#1E293B]">
+              <Button
+                size="lg"
+                className="gap-2 cursor-pointer bg-[#FACC15] hover:bg-[#FACC15]/80 text-[#0F172A] font-semibold hover:text-[#1E293B]"
+              >
                 Comenzar Ahora
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
             {isSignedIn ? (
-              <Link href="/dashboard">
-                <Button size="lg" variant="outline" className="cursor-pointer border-[#3B82F6] text-[#3B82F6] hover:bg-[#E5E7EB] hover:text-black font-semibold">
-                Dashboard
+              <Link href="/perfil">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="cursor-pointer border-[#3B82F6] text-[#3B82F6] hover:bg-[#E5E7EB] hover:text-black font-semibold"
+                >
+                  Dashboard
                 </Button>
               </Link>
             ) : (
-            <SignInButton mode="modal">
-              {/* This button will open the sign-in modal */}
-              <Button size="lg" variant="outline" className="cursor-pointer border-[#3B82F6] text-[#3B82F6] hover:bg-[#E5E7EB] hover:text-black font-semibold">
-                Iniciar Sesión
-              </Button>
-            </SignInButton>
+              <SignInButton mode="modal">
+                {/* This button will open the sign-in modal */}
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="cursor-pointer border-[#3B82F6] text-[#3B82F6] hover:bg-[#E5E7EB] hover:text-black font-semibold"
+                >
+                  Iniciar Sesión
+                </Button>
+              </SignInButton>
             )}
           </div>
         </div>
       </section>
-      
+
       {/* Features Section */}
-      <section id="features" className="space-y-12 py-16 md:py-20 lg:py-24 mx-auto container">
+      <section
+        id="features"
+        className="space-y-12 py-16 md:py-20 lg:py-24 mx-auto container"
+      >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
           <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-[#E5E7EB] to-[#3B82F6]">
             Características Principales
           </h2>
           <p className="max-w-[85%] text-[#E5E7EB]/80">
-            Nuestro sistema de reconocimiento facial ofrece una solución completa para el control de acceso corporativo
+            Nuestro sistema de reconocimiento facial ofrece una solución
+            completa para el control de acceso corporativo
           </p>
         </div>
 
@@ -62,9 +77,12 @@ export default function Home() {
             <div className="rounded-full bg-[#3B82F6]/10 p-3">
               <Shield className="h-7 w-7 text-[#3B82F6]" />
             </div>
-            <h3 className="text-xl font-bold text-[#E5E7EB]">Seguridad Avanzada</h3>
+            <h3 className="text-xl font-bold text-[#E5E7EB]">
+              Seguridad Avanzada
+            </h3>
             <p className="text-center text-[#E5E7EB]/80">
-              Reconocimiento facial de alta precisión para un control de acceso seguro y fiable en entornos empresariales
+              Reconocimiento facial de alta precisión para un control de acceso
+              seguro y fiable en entornos empresariales
             </p>
           </div>
 
@@ -72,9 +90,12 @@ export default function Home() {
             <div className="rounded-full bg-[#3B82F6]/10 p-3">
               <BarChart3 className="h-7 w-7 text-[#3B82F6]" />
             </div>
-            <h3 className="text-xl font-bold text-[#E5E7EB]">Análisis en Tiempo Real</h3>
+            <h3 className="text-xl font-bold text-[#E5E7EB]">
+              Análisis en Tiempo Real
+            </h3>
             <p className="text-center text-[#E5E7EB]/80">
-              Monitoreo y estadísticas detalladas de entradas y salidas para optimizar sus operaciones de seguridad
+              Monitoreo y estadísticas detalladas de entradas y salidas para
+              optimizar sus operaciones de seguridad
             </p>
           </div>
 
@@ -82,9 +103,12 @@ export default function Home() {
             <div className="rounded-full bg-[#3B82F6]/10 p-3">
               <Lock className="h-7 w-7 text-[#3B82F6]" />
             </div>
-            <h3 className="text-xl font-bold text-[#E5E7EB]">Gestión de Permisos</h3>
+            <h3 className="text-xl font-bold text-[#E5E7EB]">
+              Gestión de Permisos
+            </h3>
             <p className="text-center text-[#E5E7EB]/80">
-              Control total sobre quién puede acceder a sus instalaciones, con niveles personalizables de autorización
+              Control total sobre quién puede acceder a sus instalaciones, con
+              niveles personalizables de autorización
             </p>
           </div>
         </div>
