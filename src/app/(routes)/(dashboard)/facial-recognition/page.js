@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useUser } from '@clerk/nextjs';
-import { useState } from 'react';
+import { useUser } from "@clerk/nextjs";
+import { useState } from "react";
 
-export default function SettingsPage() {
+export default function FacialRecognitionPage() {
   const { user } = useUser();
-  const [imagePreview, setImagePreview] = useState(user?.imageUrl || '');
+  const [imagePreview, setImagePreview] = useState(user?.imageUrl || "");
   const [uploading, setUploading] = useState(false);
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState("");
 
   const handleFileChange = async (e) => {
     const file = e.target.files?.[0];
@@ -20,42 +20,38 @@ export default function SettingsPage() {
 
     // 2. Subir a Azure
     setUploading(true);
-    setStatus('Subiendo imagen a Azure...');
+    setStatus("Subiendo imagen a Azure...");
 
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append("file", file);
 
     try {
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
 
-      const res = await fetch('/api/upload', {
-      method: 'POST',
-      body: formData,
-    });
+      const data = await res.json(); // ✅ esta línea es obligatoria
 
-    const data = await res.json(); // ✅ esta línea es obligatoria
-
-    setUploading(false);
-    localStorage.setItem('urlPerfilAzure', data.url); // ✅ ahora sí funciona
-
+      setUploading(false);
+      localStorage.setItem("urlPerfilAzure", data.url); // ✅ ahora sí funciona
 
       if (res.ok) {
-        setStatus('✅ Imagen subida exitosamente');
-        console.log('📦 URL en Azure:', data.url);
+        setStatus("✅ Imagen subida exitosamente");
+        console.log("📦 URL en Azure:", data.url);
 
         // OPCIONAL: actualizar imagen global en Clerk
         // await user.update({ imageUrl: data.url });
-
       } else {
-        throw new Error(data.error || 'Error al subir imagen');
+        throw new Error(data.error || "Error al subir imagen");
       }
     } catch (err) {
       console.error(err);
-      setStatus('❌ Error al subir imagen');
+      setStatus("❌ Error al subir imagen");
     } finally {
       setUploading(false);
     }
-    localStorage.setItem('urlPerfilAzure', data.url);
-
+    localStorage.setItem("urlPerfilAzure", data.url);
   };
 
   return (
@@ -68,7 +64,12 @@ export default function SettingsPage() {
         className="w-40 h-40 mx-auto rounded-full object-cover border shadow mb-4"
       />
 
-      <input type="file" accept="image/*" onChange={handleFileChange} disabled={uploading} />
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleFileChange}
+        disabled={uploading}
+      />
       <p className="mt-4 text-sm text-gray-600">{status}</p>
     </div>
   );
