@@ -42,19 +42,21 @@ export default function InfoCard({
 
   return (
     <div className={`group relative overflow-hidden rounded-xl border ${config.border} ${config.bg} p-5 transition-all duration-300 hover:scale-105 hover:shadow-2xl ${config.shadow}`}>
-      <div className="flex items-start justify-between mb-3">
-        <div className={`p-2.5 rounded-lg ${config.iconBg} text-white`}>
-          <Icon className="w-5 h-5" />
+      {Icon && (
+        <div className="flex items-start justify-between mb-3">
+          <div className={`p-2.5 rounded-lg ${config.iconBg} text-white`}>
+            <Icon className="w-5 h-5" />
+          </div>
+          {badge && (
+            <span className="text-xs text-gray-700 bg-gray-200/80 px-2 py-1 rounded-full font-medium">
+              {badge}
+            </span>
+          )}
         </div>
-        {badge && (
-          <span className="text-xs text-gray-700 bg-gray-200/80 px-2 py-1 rounded-full font-medium">
-            {badge}
-          </span>
-        )}
-      </div>
-      <h3 className="text-lg font-semibold text-gray-800 mb-1">{title}</h3>
-      <p className="text-sm text-gray-600 mb-2">{description}</p>
-      <div className={`text-2xl font-bold ${config.textColor}`}>{data}</div>
+      )}
+      <h3 className="text-lg font-semibold text-gray-800 mb-2">{title}</h3>
+      <div className={`text-2xl font-bold ${config.textColor} mb-1`}>{data}</div>
+      <p className="text-sm text-gray-600">{description}</p>
     </div>
   );
 }
