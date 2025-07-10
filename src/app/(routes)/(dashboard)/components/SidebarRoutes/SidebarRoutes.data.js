@@ -4,20 +4,19 @@ import {
   Camera,
   History,
   QrCode,
-  Settings,
   Shield,
   User,
 } from "lucide-react";
 
 export const dataGeneralSidebar = [
   {
-    href: "/dashboard",
-    label: "Mi panel",
+    href: "/perfil",
+    label: "Mi Perfil",
     icon: User,
   },
   {
     href: "/records",
-    label: "Historial de accesos",
+    label: "Mis accesos",
     icon: History,
   },
   {
@@ -25,21 +24,16 @@ export const dataGeneralSidebar = [
     label: "Horarios",
     icon: CalendarClock,
   },
-  {
-    href: "/settings",
-    label: "Configuración",
-    icon: Settings,
-  },
 ];
 
 export const dataUSerSidebar = [
   {
-    href: "/Qr",
+    href: "/qr",
     label: "Mi Código QR",
     icon: QrCode,
   },
   {
-    href: "/facial",
+    href: "/facial-recognition",
     label: "Reconocimiento facial",
     icon: Camera,
   },
