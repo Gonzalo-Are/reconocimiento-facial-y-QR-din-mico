@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
+import Link from "next/link";
 
 export default function CustomNotFound() {
   return (
@@ -36,7 +36,7 @@ export default function CustomNotFound() {
         </SignedOut>
 
         <SignedIn>
-          <Link href="/dashboard">
+          <Link href="/perfil">
             <button
               className="
                 bg-white text-black font-semibold
