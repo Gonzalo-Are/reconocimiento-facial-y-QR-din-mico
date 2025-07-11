@@ -48,10 +48,19 @@ export default function CameraPage() {
     canvas.getContext("2d").drawImage(videoRef.current, 0, 0);
     const imagenBase64 = canvas.toDataURL("image/jpeg");
 
-    const perfilUrl = localStorage.getItem("urlPerfilAzure");
-    if (!perfilUrl) {
-      setStatus("❌ No se ha subido una foto de perfil.");
-      return;
+    // const perfilUrl = localStorage.getItem("urlPerfilAzure");
+    // if (!perfilUrl) {
+    //   setStatus("❌ No se ha subido una foto de perfil.");
+    //   return;
+    // }
+    let perfilUrl = null;
+    const response = await fetch(`/api/profile?userId=${user.id}`);
+    const data = await response.json();
+
+    if (response.ok) {
+      perfilUrl = data.avatarUrl;
+    } else {
+      setStatus(data.error || "Error al obtener el avatar");
     }
 
     setStatus("🔄 Verificando rostro…");
