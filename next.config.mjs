@@ -5,7 +5,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "facetoqrimages.blob.core.windows.net",
-        pathname: "/**", // permite todas las rutas del blob
+        pathname: "/**", 
       },
     ],
   },

@@ -14,7 +14,6 @@ export async function GET(req) {
       );
     }
 
-    // Buscar el perfil del usuario
     const profile = await prisma.profile.findUnique({
       where: { userId },
       select: { avatarUrl: true },
@@ -38,7 +37,7 @@ export async function POST(req) {
     const file = formData.get("avatar");
     const userId = formData.get("userId");
 
-    // Validaciones básicas
+    // Basic validation
     if (!file || !userId) {
       return NextResponse.json(
         { error: "Faltan datos requeridos (avatar o userId)" },
@@ -46,17 +45,17 @@ export async function POST(req) {
       );
     }
 
-    // Extraer contenido del archivo
+    // Extract file details
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
     const contentType = file.type;
     const extension = file.name.split(".").pop();
     const filename = `avatar-${userId}.${extension}`;
 
-    // Subida a Azure
+    // Upload image to Azure Blob Storage
     const url = await uploadImageToAzure(filename, buffer, contentType);
 
-    // Guardar o actualizar en Neon vía Prisma
+    // Update or create profile in database
     const profile = await prisma.profile.upsert({
       where: { userId },
       update: { avatarUrl: url },

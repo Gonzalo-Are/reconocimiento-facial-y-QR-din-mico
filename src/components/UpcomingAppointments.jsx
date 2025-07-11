@@ -65,7 +65,7 @@ export default function UpcomingAppointments() {
 
   return (
     <div className="border border-gray-200 rounded-lg p-6 bg-white">
-      {/* Header con título y dialog */}
+      {/* Header with title and dialogue */}
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-gray-800">Próximas Citas</h2>
         <Dialog>
@@ -91,26 +91,26 @@ export default function UpcomingAppointments() {
         </Dialog>
       </div>
 
-      {/* Lista de citas */}
+      {/* List of appointments */}
       <div className="space-y-3">
         {appointmentsData.map((appointment) => (
           <div
             key={appointment.id}
             className="grid grid-cols-1 sm:grid-cols-[auto_1fr_auto] gap-3 p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow"
           >
-            {/* Columna izquierda: Fecha y hora */}
+            {/* Left column: Date and time */}
             <div className="flex flex-col sm:items-start sm:min-w-0 sm:w-auto">
               <span className="text-sm font-medium text-gray-500 mb-1 whitespace-nowrap">{appointment.date}</span>
               <span className="text-xl font-bold text-gray-900 whitespace-nowrap">{appointment.time}</span>
             </div>
 
-            {/* Columna central: Título y ubicación */}
+            {/* Central column: Title and ubication */}
             <div className="flex flex-col justify-center min-w-0 sm:ml-3">
               <h3 className="font-semibold text-gray-800 mb-1 truncate">{appointment.title}</h3>
               <p className="text-sm text-gray-500 truncate">{appointment.location}</p>
             </div>
 
-            {/* Columna derecha: Estado y botón QR */}
+            {/* Right column: Status and QR button */}
             <div className="flex items-start sm:items-center justify-between sm:justify-end gap-2 sm:min-w-0 sm:w-auto">
               <span className={`inline-flex px-3 py-1 text-xs font-medium rounded-full whitespace-nowrap ${getStatusBg(appointment.status)} ${getStatusColor(appointment.status)}`}>
                 {appointment.status}

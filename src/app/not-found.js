@@ -7,20 +7,16 @@ export default function CustomNotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-black">
       <div className="text-center">
-        {/* Título grande en blanco */}
         <h1 className="text-7xl font-extrabold text-white mb-4">404</h1>
 
-        {/* Subtítulo en blanco */}
         <h2 className="text-2xl font-medium text-white mb-6">
           Página no encontrada
         </h2>
 
-        {/* Texto descriptivo en gris claro */}
         <p className="text-gray-300 mb-8">
           Lo sentimos, la ruta que buscas no existe o fue movida.
         </p>
 
-        {/* Botones condicionales según el estado de autenticación */}
         <SignedOut>
           <Link href="/">
             <button

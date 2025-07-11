@@ -68,8 +68,8 @@ export default function RecentAccessList() {
       status: 'Exitoso'
     },
   ];
-
-  // Mostrar solo los primeros 4 elementos
+  
+  // Show only the first 4 access records
   const displayedAccess = recentAccess.slice(0, 4);
   const hasMore = recentAccess.length > 4;
 

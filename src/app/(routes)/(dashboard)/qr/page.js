@@ -24,22 +24,16 @@ export default function QrPage() {
       return;
     }
 
-    // 1) Creamos el payload JSON con la información que desees codificar
-    //    Aquí por simplicidad solo incluimos “tipo de permiso” y “validoPor”
     const payloadObj = {
       permiso: "acceso-puerta-principal",
       validoPor: qrValidity,
       generadoEn: new Date().toISOString(),
     };
 
-    // 2) Convertimos el objeto a string (cadena JSON)
     const payloadString = JSON.stringify(payloadObj);
 
-    // 3) Guardamos ese string en el estado para que <QRCode> lo represente
     setQrPayload(payloadString);
 
-    // Opcional: podrías hacer algo con esta información,
-    // como enviarla a tu API para dejar registro en BD.
     console.log("Payload QR:", payloadString);
   };
 
@@ -84,7 +78,6 @@ export default function QrPage() {
         Generar QR
       </button>
 
-      {/* 4) Si ya tenemos qrPayload, lo mostramos: */}
       {qrPayload && (
         <div className="mt-8">
           <h2 className="text-xl font-medium mb-4">

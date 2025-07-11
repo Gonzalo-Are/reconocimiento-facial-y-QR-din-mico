@@ -22,5 +22,5 @@ export async function uploadImageToAzure(filename, buffer, contentType) {
     },
   });
 
-  return blockBlobClient.url; // URL pública de la imagen
+  return blockBlobClient.url;
 }

@@ -2,12 +2,11 @@ import { NextResponse } from 'next/server';
 import { BlobServiceClient, StorageSharedKeyCredential } from '@azure/storage-blob';
 import { randomUUID } from 'crypto';
 
-// Variables de entorno
 const AZURE_STORAGE_ACCOUNT_NAME = process.env.AZURE_STORAGE_ACCOUNT_NAME;
 const AZURE_STORAGE_ACCOUNT_KEY = process.env.AZURE_STORAGE_ACCOUNT_KEY;
 const AZURE_STORAGE_CONTAINER_NAME = process.env.AZURE_STORAGE_CONTAINER_NAME;
 
-// Crear el cliente de Azure Blob
+// Create Azure Blob credentials
 const blobServiceClient = new BlobServiceClient(
   `https://${AZURE_STORAGE_ACCOUNT_NAME}.blob.core.windows.net`,
   new StorageSharedKeyCredential(AZURE_STORAGE_ACCOUNT_NAME, AZURE_STORAGE_ACCOUNT_KEY)

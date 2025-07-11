@@ -38,7 +38,7 @@ export default function AvatarDisplay() {
     }
   };
 
-  // Función para refrescar el avatar después de subir uno nuevo
+  // Callback to refresh avatar after upload
   const handleAvatarUploaded = () => {
     fetchAvatar();
   };
@@ -87,7 +87,7 @@ export default function AvatarDisplay() {
     );
   }
 
-  // Si no hay avatar, mostrar el formulario de subida
+  // If no avatar is set, show upload option
   return (
     <div className="space-y-4">
       <p className="text-gray-600 mb-4">

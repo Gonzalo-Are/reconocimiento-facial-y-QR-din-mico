@@ -1,4 +1,3 @@
-// src/app/api/verificar/route.js
 import { NextResponse } from 'next/server';
 import axios from 'axios';
 
@@ -16,7 +15,6 @@ export async function POST(req) {
       throw new Error('Faltan datos necesarios para la verificación.');
     }
 
-    // Paso 1: Detectar rostro en la imagen de perfil
     let faceId1;
     try {
       const perfilResponse = await axios.post(
@@ -37,7 +35,6 @@ export async function POST(req) {
       return NextResponse.json({ error: 'No se detectó rostro en la imagen de perfil.' }, { status: 400 });
     }
 
-    // Paso 2: Detectar rostro en la imagen de la cámara
     let faceId2;
     try {
       const camaraBuffer = Buffer.from(
@@ -64,7 +61,6 @@ export async function POST(req) {
       return NextResponse.json({ error: 'No se detectó rostro en la imagen de cámara.' }, { status: 400 });
     }
 
-    // Paso 3: Verificar coincidencia entre ambas caras
     try {
       const verifyResponse = await axios.post(
         `${FACE_API_ENDPOINT}/verify`,
