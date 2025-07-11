@@ -28,12 +28,12 @@ export function NavbarDashboard() {
       <div className="absolute left-1/2 transform -translate-x-1/2 xl:hidden">
         <LogoDashboard />
       </div>
-      <div className="flex items-center justify-end w-full gap-x-6">
+      <div className="flex items-center justify-end w-full gap-x-6 flex-wrap sm:flex-nowrap">
         <Link href="/camera">
           <div className="flex items-center gap-3">
-            <span className="text-lg font-medium">Reconocimiento facial</span>
+            <span className="hidden sm:inline text-sm font-medium text-black hidden xs:inline">Reconocimiento facial</span>
             <ArrowRight className="w-4 h-4 text-black"/>
-            <Camera className="w-6 h-6 text-black hover:text-blue-500 duration-200 cursor-pointer" />
+            <Camera className="w-5 h-5 text-black hover:text-blue-500 duration-200 cursor-pointer" />
           </div>
         </Link>
 
