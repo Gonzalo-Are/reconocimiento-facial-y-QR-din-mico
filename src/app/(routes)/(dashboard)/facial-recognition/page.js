@@ -1,7 +1,6 @@
 "use client";
 
 import { useUser } from "@clerk/nextjs";
-import Image from "next/image";
 import { useState } from "react";
 
 export default function FacialRecognitionPage() {
@@ -59,7 +58,7 @@ export default function FacialRecognitionPage() {
     <div className="max-w-md mx-auto mt-10 px-4 text-center">
       <h1 className="text-2xl font-bold mb-6">Foto de Perfil</h1>
 
-      <Image
+      <img
         src={imagePreview}
         alt="Foto actual"
         className="w-40 h-40 mx-auto rounded-full object-cover border shadow mb-4"
