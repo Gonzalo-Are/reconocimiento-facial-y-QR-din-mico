@@ -86,46 +86,39 @@ export default function CameraPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4">
-      <h1 className="text-xl sm:text-2xl font-bold mb-4 text-center">
+    <div className="min-h-screen bg-[#0e1624] text-white flex flex-col items-center justify-center px-4">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-2 text-center">
         Verificación biométrica
       </h1>
+      <p className="text-sm text-gray-400 mb-6 text-center">{status}</p>
 
       {camaraDisponible ? (
         <video
           ref={videoRef}
           autoPlay
           playsInline
-          className="w-full max-w-sm rounded-md shadow-lg aspect-video bg-black"
+          className="w-full max-w-xs h-64 object-cover rounded-md shadow-lg aspect-video bg-black border border-gray-700"
         />
       ) : (
-        <div className="w-full max-w-sm aspect-video bg-black rounded-md shadow-lg flex items-center justify-center text-white">
+        <div className="w-full max-w-sm aspect-video bg-black rounded-md shadow-lg border border-gray-700 flex items-center justify-center text-white">
           <p className="text-center px-4">Cámara no disponible</p>
         </div>
       )}
 
-      <div className="mt-6 flex flex-col items-center gap-4 w-full max-w-sm">
+      <div className="mt-6 flex gap-4">
         <button
           onClick={verificar}
-          className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded w-full"
+          disabled={!camaraDisponible}
+          className={`px-4 py-2 rounded text-white transition ${
+            status.includes("No se pudo acceder")
+              ? "bg-red-600 hover:bg-red-700"
+              : "bg-green-600 hover:bg-green-700"
+          }`}
         >
           Verificar
         </button>
-
-        <p
-          className={`text-center text-sm font-medium ${
-            status.startsWith("✅")
-              ? "text-green-600"
-              : status.startsWith("❌")
-              ? "text-red-600"
-              : "text-gray-700"
-          }`}
-        >
-          {status}
-        </p>
-
-        <Link href="/perfil" className="w-full">
-          <button className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded w-full">
+        <Link href="/perfil">
+          <button className="bg-gray-600 hover:bg-gray-500 text-white px-4 py-2 rounded transition">
             Volver
           </button>
         </Link>
