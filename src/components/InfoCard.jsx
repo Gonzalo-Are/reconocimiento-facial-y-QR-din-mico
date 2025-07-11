@@ -35,6 +35,13 @@ export default function InfoCard({
       iconBg: 'bg-orange-500',
       textColor: 'text-orange-600',
       shadow: 'hover:shadow-orange-500/20'
+    },
+    red: {
+      bg: 'bg-gradient-to-br from-red-50/80 to-[#FFEBEE]',
+      border: 'border-red-500/20',
+      iconBg: 'bg-red-500',
+      textColor: 'text-red-600',
+      shadow: 'hover:shadow-red-500/20'
     }
   };
 
