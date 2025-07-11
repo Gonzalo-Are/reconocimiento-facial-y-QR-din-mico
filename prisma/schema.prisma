@@ -19,3 +19,12 @@ model Profile {
   avatarUrl String?
   createdAt DateTime @default(now())
 }
+
+model AccessRecord {
+  id         String   @id @default(uuid())
+  userId     String
+  status     String // "GRANTED" o "DENIED"
+  confidence Float? // Nivel de confianza de la verificación facial
+  timestamp  DateTime @default(now())
+  method     String   @default("FACIAL") // "FACIAL" o "QR"
+}

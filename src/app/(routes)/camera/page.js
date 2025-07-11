@@ -80,6 +80,8 @@ export default function CameraPage() {
 
       if (resultado?.isIdentical && resultado?.confidence > 0.7) {
         setStatus("✅ Acceso concedido. Bienvenido.");
+        // Guardar registro de acceso exitoso
+        await saveAccessRecord("GRANTED", resultado.confidence);
         // setTimeout(() => window.location.href = '/dashboard', 1000);
       } else {
         setStatus(
@@ -87,10 +89,30 @@ export default function CameraPage() {
             (resultado?.confidence || 0) * 100
           )}%`
         );
+        // Guardar registro de acceso denegado
+        await saveAccessRecord("DENIED", resultado?.confidence || 0);
       }
     } catch (err) {
       console.error("❌ Error en verificación:", err);
       setStatus("❌ Error al verificar rostro. Intenta nuevamente.");
+    }
+  };
+
+  // Function to save access record
+  const saveAccessRecord = async (status, confidence) => {
+    try {
+      await fetch("/api/access-record", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: user.id,
+          status,
+          confidence,
+          method: "FACIAL",
+        }),
+      });
+    } catch (error) {
+      console.error("Error al guardar registro de acceso:", error);
     }
   };
 
