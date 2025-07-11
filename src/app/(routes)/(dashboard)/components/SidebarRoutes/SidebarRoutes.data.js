@@ -34,7 +34,7 @@ export const dataUSerSidebar = [
   },
   {
     href: "/facial-recognition",
-    label: "Reconocimiento facial",
+    label: "Registrar rostro",
     icon: Camera,
   },
 ];

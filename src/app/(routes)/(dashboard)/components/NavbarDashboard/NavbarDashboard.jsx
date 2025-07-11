@@ -5,7 +5,7 @@ import {
   SheetTrigger
 } from "@/components/ui/sheet"
 import { UserButton } from "@clerk/nextjs"
-import { Camera, Menu } from "lucide-react"
+import { Camera, Menu, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { LogoDashboard } from "../LogoDashboard"
 import { SidebarRoutes } from "../SidebarRoutes"
@@ -28,9 +28,13 @@ export function NavbarDashboard() {
       <div className="absolute left-1/2 transform -translate-x-1/2 xl:hidden">
         <LogoDashboard />
       </div>
-      <div className="flex items-center justify-end w-full gap-x-4">
+      <div className="flex items-center justify-end w-full gap-x-6">
         <Link href="/camera">
-          <Camera className="w-6 h-6 text-black hover:text-blue-500 transition duration-200 cursor-pointer" />
+          <div className="flex items-center gap-3">
+            <span className="text-lg font-medium">Reconocimiento facial</span>
+            <ArrowRight className="w-4 h-4 text-black"/>
+            <Camera className="w-6 h-6 text-black hover:text-blue-500 duration-200 cursor-pointer" />
+          </div>
         </Link>
 
         <UserButton />
