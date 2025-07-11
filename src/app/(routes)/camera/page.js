@@ -10,7 +10,7 @@ export default function CameraPage() {
   const [status, setStatus] = useState("Conectando con la cámara…");
   const [camaraDisponible, setCamaraDisponible] = useState(true);
 
-  // 1. Activar cámara al cargar
+  // Check if user is authenticated
   useEffect(() => {
     navigator.mediaDevices
       .getUserMedia({
@@ -35,7 +35,7 @@ export default function CameraPage() {
       });
   }, []);
 
-  // 2. Verificación facial
+  // Face verification function
   const verificar = async () => {
     if (!videoRef.current) {
       setStatus("❌ Cámara no disponible.");

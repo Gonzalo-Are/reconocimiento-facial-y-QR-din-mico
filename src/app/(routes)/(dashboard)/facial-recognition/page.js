@@ -14,12 +14,12 @@ export default function FacialRecognitionPage() {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // 1. Mostrar preview
+    // Show image preview
     const reader = new FileReader();
     reader.onloadend = () => setImagePreview(reader.result);
     reader.readAsDataURL(file);
 
-    // 2. Subir a Azure
+    // Upload image to Azure
     setUploading(true);
     setStatus("Subiendo imagen a Azure...");
 
@@ -32,17 +32,15 @@ export default function FacialRecognitionPage() {
         body: formData,
       });
 
-      const data = await res.json(); // ✅ esta línea es obligatoria
+      const data = await res.json(); 
 
       setUploading(false);
-      localStorage.setItem("urlPerfilAzure", data.url); // ✅ ahora sí funciona
+      localStorage.setItem("urlPerfilAzure", data.url); 
 
       if (res.ok) {
         setStatus("✅ Imagen subida exitosamente");
         console.log("📦 URL en Azure:", data.url);
 
-        // OPCIONAL: actualizar imagen global en Clerk
-        // await user.update({ imageUrl: data.url });
       } else {
         throw new Error(data.error || "Error al subir imagen");
       }

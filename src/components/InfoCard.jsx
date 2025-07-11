@@ -6,7 +6,7 @@ export default function InfoCard({
   data,
   badge
 }) {
-  // Configuración de colores basada en el prop color
+  // Default color configuration
   const colorConfig = {
     blue: {
       bg: 'bg-gradient-to-br from-blue-50/80 to-[#DEECFE]',

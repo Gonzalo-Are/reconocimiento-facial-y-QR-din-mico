@@ -5,7 +5,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "fotosusuariosunods.blob.core.windows.net",
-        pathname: "/**", // permite todas las rutas del blob
+        pathname: "/**",
       },
     ],
   },

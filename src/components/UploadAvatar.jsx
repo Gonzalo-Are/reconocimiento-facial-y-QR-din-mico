@@ -31,7 +31,6 @@ export default function UploadAvatar({ onAvatarUploaded }) {
         setStatus("¡Imagen subida con éxito!");
         console.log("Respuesta:", data);
 
-        // Llamar al callback si existe para refrescar la vista
         if (onAvatarUploaded) {
           onAvatarUploaded();
         }
