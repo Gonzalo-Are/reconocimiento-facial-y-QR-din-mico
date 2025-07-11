@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "facetoqrimages.blob.core.windows.net",
+        hostname: "fotosusuariosunods.blob.core.windows.net",
         pathname: "/**", // permite todas las rutas del blob
       },
     ],

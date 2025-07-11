@@ -1,5 +1,6 @@
 "use client";
 
+import AvatarDisplay from "@/components/AvatarDisplay";
 import { useUser } from "@clerk/nextjs";
 import { useState } from "react";
 
@@ -58,19 +59,7 @@ export default function FacialRecognitionPage() {
     <div className="max-w-md mx-auto mt-10 px-4 text-center">
       <h1 className="text-2xl font-bold mb-6">Foto de Perfil</h1>
 
-      <img
-        src={imagePreview}
-        alt="Foto actual"
-        className="w-40 h-40 mx-auto rounded-full object-cover border shadow mb-4"
-      />
-
-      <input
-        type="file"
-        accept="image/*"
-        onChange={handleFileChange}
-        disabled={uploading}
-      />
-      <p className="mt-4 text-sm text-gray-600">{status}</p>
+      <AvatarDisplay />
     </div>
   );
 }
