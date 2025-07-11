@@ -8,6 +8,8 @@ import { UserButton } from "@clerk/nextjs"
 import { Menu } from "lucide-react"
 import { LogoDashboard } from "../LogoDashboard"
 import { SidebarRoutes } from "../SidebarRoutes"
+import { Camera } from "lucide-react"
+import Link from "next/link"
 
 
 export function NavbarDashboard() {
@@ -27,7 +29,11 @@ export function NavbarDashboard() {
       <div className="absolute left-1/2 transform -translate-x-1/2 xl:hidden">
         <LogoDashboard />
       </div>
-      <div className="flex items-center justify-end w-full gap-x-2">
+      <div className="flex items-center justify-end w-full gap-x-4">
+        <Link href="/camera">
+         <Camera className="w-6 h-6 text-black hover:text-blue-500 transition duration-200 cursor-pointer" />
+        </Link> 
+         
         <UserButton />
       </div>
     </nav>
